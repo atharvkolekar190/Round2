@@ -16,7 +16,7 @@ const userSchema = new Schema({
 	},
 })
 
-userSchema.statics.signup = function (email, password) {
+userSchema.statics.signup =async function (email, password) {
 	if (!email || !password) {
 		throw Error("All fields must be filled")
 	}
@@ -30,16 +30,16 @@ userSchema.statics.signup = function (email, password) {
 		throw Error("Password is not strong enough")
 	}
 
-	const emailExists = this.findOne({ email })
-
+	const emailExists =await this.findOne({ email })
+	console.log(emailExists)
 	if (emailExists) {
 		throw Error("Email already in use")
 	}
 
-	const salt = bcrypt.genSalt(10)
-	const hash = bcrypt.hash(password, salt)
+	const salt =await bcrypt.genSalt(10)
+	const hash =await bcrypt.hash(password, salt)
 
-	const user = this.create({ email, password: hash })
+	const user =await this.create({ email, password: hash })
 
 	return user
 }
