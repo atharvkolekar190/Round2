@@ -175,4 +175,4 @@ function EditForm({ workout, setIsEditFormVisible }) {
 	)
 }
 
-export default EditForm
+export default EditForm;
