@@ -1,4 +1,4 @@
-require("dotenv").config()
+// require("dotenv").config()
 
 const express = require("express")
 const mongoose = require("mongoose")
@@ -6,6 +6,7 @@ const helmet = require("helmet")
 const compression = require("compression")
 const workoutRoutes = require("./routes/workouts")
 const userRoutes = require("./routes/user")
+const dotenv = require("dotenv")
 
 const app = express()
 
@@ -38,3 +39,8 @@ mongoose
 	.catch((err) => {
 		console.log(err)
 	})
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+	console.log(`Server running on port ${PORT}`)
+})
