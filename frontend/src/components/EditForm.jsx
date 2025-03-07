@@ -107,7 +107,7 @@ function EditForm({ workout, setIsEditFormVisible }) {
 		<div className="bg-white w-full h-[500px] rounded-md p-4">
 			<ThemeProvider theme={theme}>
 				<form onSubmit={handleSubmit}>
-					<div className="flex flex-col my-">
+					<div className="flex flex-col my-4">
 						<Typography variant="h4">
 							<Box sx={{ fontStyle: "italic", mb: 2 }}>Edit Workout</Box>
 						</Typography>
