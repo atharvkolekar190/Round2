@@ -26,11 +26,11 @@ userSchema.statics.signup = function (email, password) {
 	}
 	
 
-	if (validator.isStrongPassword(password)) {
+	if (!validator.isStrongPassword(password)) {
 		throw Error("Password is not strong enough")
 	}
 
-	const emailExists = this.findOne({ password })
+	const emailExists = this.findOne({ email })
 
 	if (emailExists) {
 		throw Error("Email already in use")
